@@ -2,19 +2,21 @@
 
 int main()
 {
-   enrutador Z,Y,X;
-   Z.Agregar_enlace('A',3);
-   Z.Agregar_enlace('B',21);
-   Z.Agregar_enlace('C',46);
-   Y.Agregar_enlace('A',61);
-   Y.Agregar_enlace('B',-1);
-   Y.Agregar_enlace('C',5);
-   X.Agregar_enlace('A',-1);
-   X.Agregar_enlace('B',44);
-   X.Agregar_enlace('C',-1);
-   Z.eliminar_enlace('B');
-   Z.visualizar();
-   Y.visualizar();
-   X.visualizar();
+   red inv;
+   inv.agregar_nodo('A');
+   inv.agregar_nodo('B');
+   inv.agregar_nodo('C');
+   inv.agregar_nodo('D');
+   inv.Visualizar_matriz();
+   inv.modificar_nodo('A');
+   inv.Visualizar_matriz();
+   inv.modificar_nodo('C');
+   inv.Visualizar_matriz();
+   inv.eliminar_nodo('B');
+   inv.Visualizar_matriz();
+   inv.agregar_nodo('B');
+   inv.Visualizar_matriz();
+   inv.agregar_nodo('F');
+   inv.Visualizar_matriz();
    return 0;
 }

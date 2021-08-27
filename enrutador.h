@@ -2,6 +2,7 @@
 #define ENRUTADOR_H
 # include <iostream>
 #include <map>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -11,6 +12,7 @@ public:
     void eliminar_enlace(char name_nodo);
     void Agregar_enlace(char name_nodo,int valor_neutro);
     void visualizar();
+    void anular_enlace(char name_nodo);
 private:
 map<char,int> Enrutador;
 map<char,int>::iterator ite_enrutador;

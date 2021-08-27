@@ -4,14 +4,16 @@
 
 class red{
 public:
-    red();
     void agregar_nodo(char name_nodo);
     void eliminar_nodo(char name_nodo);
     void modificar_nodo(char name_nodo);
+    void Visualizar_matriz();
+    void modificar_al_agregar(char name_nodo,char modifica, int valor);
+    void modificar_pareja(char name_nodo,char modifica,int valor);
 private:
     map<char,enrutador> Red;
     map<char,enrutador>::iterator ite_red;
-    char Letra= 65;
+
 };
 
 #endif // RED_H
