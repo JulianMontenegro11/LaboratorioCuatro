@@ -56,6 +56,9 @@ void red::modificar_nodo(char name_nodo)
         cin>>modifica;
         cout<<"Ingrese el nuevo valor del enlace, de no existir enlace ingrese el valor '-1'"<<endl;
         cin>>valor;
+        if(name_nodo==modifica){
+            valor=0;
+        }
         Red[name_nodo].modificar_enlace(modifica,valor);
         modificar_pareja(modifica,name_nodo,valor);
 
@@ -314,6 +317,7 @@ void red::completar_lectura(string nombre_archivo)
         texto.close();}
 
 }
+
 
 
 
