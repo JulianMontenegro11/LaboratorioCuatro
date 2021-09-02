@@ -3,7 +3,12 @@
 int main()
 {
  red a;
-a.lectura_red("red_prueba.txt");
+a.lectura_red("prueba.txt");
 a.Visualizar_matriz();
-   return 0;
+a.completar_lectura("prueba.txt");
+a.Visualizar_matriz();
+a.modificar_nodo('A');
+a.Visualizar_matriz();
+
+
 }

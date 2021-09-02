@@ -12,7 +12,8 @@ public:
     void modificar_pareja(char name_nodo,char modifica,int valor);
     void lectura_red(string nombre_archivo);
     void agregar_por_lectura(char nodo1, char nodo2, char enlace,char enlace2);
-    void modificar_lectura(char nodo1,char nodo2,int valor); // modifica despues de tener el enrutador neutro
+    void modificar_lectura(char nodo1,char nodo2,char enlace,char enlace2); // modifica despues de tener el enrutador neutro
+    void completar_lectura(string nombre_archivo);// funcion permite modificar los enlaces de la matriz leida por archivo de texto
 private:
     map<char,enrutador> Red;
     map<char,enrutador>::iterator ite_red;

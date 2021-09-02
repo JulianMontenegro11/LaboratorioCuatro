@@ -113,7 +113,7 @@ void red::lectura_red(string nombre_archivo)
         tam=texto.tellg();
         texto.seekg(0);
         int i=0;
-        while (i<tam) {
+        while (i<=67) {
 
             for(int k=1;k<=8;k++){
                 aux=texto.get();
@@ -189,6 +189,8 @@ void red::lectura_red(string nombre_archivo)
             }
 
 
+
+
         }
     } else {
         cout<<" No se pudo abrir el archivo"<<endl;
@@ -226,7 +228,9 @@ void red::agregar_por_lectura(char menor, char name_nodo, char enlace,char enlac
 
     }
     Red.insert(pair<char,enrutador>(name_nodo,x));
-    modificar_lectura(name_nodo,menor,enlace_real);
+
+
+
 
 
 
@@ -235,20 +239,82 @@ void red::agregar_por_lectura(char menor, char name_nodo, char enlace,char enlac
 
 }
 
-void red::modificar_lectura(char nodo1, char nodo2, int valor)
+void red::modificar_lectura(char nodo1, char nodo2,char enlace,char enlace2)
 {
-    int contador_nodos;
-    char modifica=nodo2;
+    int contador_nodos, valor=((enlace-48)*10+(enlace2-48));
     if(Red.find(nodo1)!=Red.end()){
         for(ite_red=Red.begin();ite_red!=Red.end();ite_red++) {
             contador_nodos++;
         }
-        Red[nodo1].modificar_enlace(modifica,valor);
-        modificar_pareja(modifica,nodo1,valor);
+        Red[nodo1].modificar_enlace(nodo2,valor);
+        modificar_pareja(nodo2,nodo1,valor);
+
+    }
+}
+
+void red::completar_lectura(string nombre_archivo)
+{
+    char nodo1,nodo2,enlace,enlace2,aux,aux2,a=65;
+    int tam;
+    fstream texto;
+    texto.open(nombre_archivo,fstream::in|fstream::ate);
+    if(texto.is_open()){
+        tam=texto.tellg();
+        texto.seekg(0);
+        int i=0;
+        while (i<=67) {
+
+            for(int k=1;k<=8;k++){
+                aux=texto.get();
+                i++;
+               if(k==1){
+                   nodo1=aux;
+
+               }
+               if(k==3){
+                   nodo2=aux;
+
+               }
+               if(k==5){
+                   enlace=aux;
+
+               }
+               if(k==6){
+                   if(aux=='\n'){
+
+                       modificar_lectura(nodo1,nodo2,enlace,enlace2);
+                        k=0;
+
+                   }
+                   else enlace2=aux;
+
+               }
+               if(k==7){
+                   if(aux=='\n'){
+
+                       modificar_lectura(nodo1,nodo2,enlace,enlace2);
+
+    }
+                        k=0;
+                        if(i==68){
+                            break;
+                        }
 
 
+                   }
+
+
+               }
+
+            }
+        }
+
+     else {
+        cout<<" No se pudo abrir el archivo"<<endl;
+        texto.close();}
+
 }
-}
+
 
 
 
